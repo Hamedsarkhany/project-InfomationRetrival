@@ -7,7 +7,6 @@ import pandas as pd
 
 def scrap_page(page : int):
     scraped_data = []
-    url_list = []
 
     while page<=134:
         page += 1
@@ -24,7 +23,6 @@ def scrap_page(page : int):
 
         for link in tqdm(links):
             page_url = 'https://www.yjc.news' + link.a['href']
-            url_list.append(link.a['href'])
             try:
                 article = Article(page_url)  
                 article.download()
